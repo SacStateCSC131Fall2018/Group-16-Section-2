@@ -40,6 +40,7 @@ public class HomeFile extends Application {
 		Application.launch(args);
 	}
 	
+	
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Pirex");
