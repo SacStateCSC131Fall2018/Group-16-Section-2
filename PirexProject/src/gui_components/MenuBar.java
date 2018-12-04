@@ -1,7 +1,10 @@
+package gui_components;
+
 import javax.swing.JPanel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
 /*/
  * Authors:
  * 		Ly Nguyen

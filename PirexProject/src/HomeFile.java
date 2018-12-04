@@ -26,6 +26,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextBuilder;
 import javafx.stage.Stage;
 
+import PirexProject.gui_components;
 /**  NOTE : JAVA FX needs to be installed
  * 
  * Goto Below Link for steps

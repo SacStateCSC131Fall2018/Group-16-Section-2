@@ -1,3 +1,4 @@
+import java.awt.Menu;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -14,7 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import com.sun.xml.internal.ws.org.objectweb.asm.Label;
-
+import gui_components.*;
 public class HomeLayout extends JFrame 
 			 implements WindowListener	
 {
@@ -58,6 +59,10 @@ public class HomeLayout extends JFrame
 		add(tabbedPane);
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         addWindowListener(this);
+        
+        //Adding Menu Bar -LY
+        MenuBar mainBar = new MenuBar();
+        setJMenuBar(mainBar);
 	}
 	
 	public void windowClosing(WindowEvent e)
