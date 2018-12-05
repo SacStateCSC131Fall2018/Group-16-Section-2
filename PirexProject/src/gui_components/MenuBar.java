@@ -39,7 +39,11 @@ public class MenuBar extends JMenuBar {
 		
 		//Help Menu
 		
-		//Options Menu
+		//OptionsMenu Set Up By Michael
+		optionsMenu = new JMenu("Options");
+		item = new JMenuItem("Documents");
+		optionsMenu.add(item);
+		
 	}
 	
 }
