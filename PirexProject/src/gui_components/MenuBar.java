@@ -53,6 +53,10 @@ public class MenuBar extends JMenuBar implements ActionListener{
 		this.add(fileMenu);
 		
 		//Help Menu
+		helpMenu = new JMenu("Help");
+		item = new JMenuItem("About Pirex");
+		helpMenu.add(item);
+		this.add(helpMenu);
 		
 		//OptionsMenu Set Up By Michael
 		optionsMenu = new JMenu("Options");
