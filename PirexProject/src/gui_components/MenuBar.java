@@ -24,6 +24,8 @@ public class MenuBar extends JMenuBar implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	JMenu fileMenu, optionsMenu, helpMenu;
 	JMenuItem item;
+	JMenuItem exportButton;
+	JMenuItem exitButton;
 
 	public MenuBar() {
 		super();			//Intiallize Bar
@@ -38,15 +40,16 @@ public class MenuBar extends JMenuBar implements ActionListener{
 		fileMenu.add(item);
 		item = new JMenuItem("Load Query");
 		fileMenu.add(item);
-		item = new JMenuItem("Import");
-		fileMenu.add(item);
-		item.addActionListener(this); //Add eventlistner to MenuItem "Import"
+		exportButton = new JMenuItem("Import");
+		fileMenu.add(exportButton);
+		exportButton.addActionListener(this); //Add eventlistner to MenuItem "Import"
 		item = new JMenuItem("Export");
 		fileMenu.add(item);
 		item = new JMenuItem("Save Query");
 		fileMenu.add(item);
-		item = new JMenuItem("Exit");
-		fileMenu.add(item);
+		exitButton = new JMenuItem("Exit");
+		exitButton.addActionListener(this); // Add eventListener to MenuItem "Exit"
+		fileMenu.add(exitButton);
 		this.add(fileMenu);
 		
 		//Help Menu
@@ -70,14 +73,17 @@ public class MenuBar extends JMenuBar implements ActionListener{
 		/*
 		 * Clicking Export button triggers filechooser dialogbox and saves filepath for future use.
 		 */
-		JFileChooser fileChooser = new JFileChooser();
-		int status = fileChooser.showOpenDialog(null);
-		if(status == JFileChooser.APPROVE_OPTION) {
-			File selectedFile = fileChooser.getSelectedFile();
-			String filename = selectedFile.getPath();
-			JOptionPane.showMessageDialog(null, "You selected" + filename);
+		Object source = E.getSource();
+		if(source == exportButton) {
+			JFileChooser fileChooser = new JFileChooser();
+			int status = fileChooser.showOpenDialog(null);
+			if(status == JFileChooser.APPROVE_OPTION) {
+				File selectedFile = fileChooser.getSelectedFile();
+				String filename = selectedFile.getPath();
+				JOptionPane.showMessageDialog(null, "You selected" + filename);
+			}
+		}else if (source == exitButton){
+			System.exit(0);
 		}
-		
 	}
-	
 }
