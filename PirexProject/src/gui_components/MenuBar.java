@@ -42,20 +42,7 @@ public class MenuBar extends JFrame implements ActionListener{
 	public MenuBar() {
 		super();			//Intiallize Bar
 		setupMenus();
-		f.setVisible(true);
-		f.setSize(400,400);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setLocationRelativeTo(null);
 		
-		JMenuBar mb = new JMenuBar();
-		JMenu file = new JMenu("File");
-		mb.add(file);
-		JMenu edit = new JMenu("Edit");
-		mb.add(edit);
-		JMenuItem exit = new JMenuItem("Exit");
-		file.add(exit);
-		
-		f.setJMenuBar(mb);
 	}
 	
 	
@@ -88,6 +75,21 @@ public class MenuBar extends JFrame implements ActionListener{
 		optionsMenu = new JMenu("Options");
 		item = new JMenuItem("Documents");
 		optionsMenu.add(item);
+		
+		f.setVisible(true);
+		f.setSize(400,400);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setLocationRelativeTo(null);
+		
+		JMenuBar mb = new JMenuBar();
+		JMenu file = new JMenu("File");
+		mb.add(file);
+		JMenu edit = new JMenu("Edit");
+		mb.add(edit);
+		JMenuItem exit = new JMenuItem("Exit");
+		file.add(exit);
+		
+		f.setJMenuBar(mb);
 		
 		
 		
