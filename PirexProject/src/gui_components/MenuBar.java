@@ -42,7 +42,7 @@ public class MenuBar extends JFrame implements ActionListener{
 	public MenuBar() {
 		super();			//Intiallize Bar
 		setupMenus();
-		
+
 	}
 	
 	
@@ -76,6 +76,7 @@ public class MenuBar extends JFrame implements ActionListener{
 		item = new JMenuItem("Documents");
 		optionsMenu.add(item);
 		
+		//BarMenu Set Up By Minh
 		f.setVisible(true);
 		f.setSize(400,400);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
