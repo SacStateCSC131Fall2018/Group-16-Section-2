@@ -91,10 +91,7 @@ public class MenuBar extends JFrame implements ActionListener{
 		
 		f.setJMenuBar(mb);
 		
-		
-		
-		
-		
+				
 	}
 
 	/*
