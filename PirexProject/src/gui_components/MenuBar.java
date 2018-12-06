@@ -30,6 +30,7 @@ public class MenuBar extends JMenuBar implements ActionListener{
 	public MenuBar() {
 		super();			//Intiallize Bar
 		setupMenus();
+		System.out.print("Hello");
 	}
 	
 	
