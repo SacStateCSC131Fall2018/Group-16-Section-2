@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -18,11 +19,14 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.effect.InnerShadowBuilder;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
@@ -111,28 +115,50 @@ public class HomeFile extends Application {
 	}
 
 	private void createSummarizeDocumentTab(TabPane tabPane) {
+		VBox sumBox = new VBox();
+		sumBox.setAlignment(Pos.CENTER);
 		Tab summarizeDocTab = new Tab();
 		summarizeDocTab.setText("Summarize Documents");
 		summarizeDocTab.setClosable(false);
+		
+		Text someText = new Text("Opus  0:Henry Ford    Slurp Rope     7312 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Slurp_Rope.txt\n"
+				+ "Opus  1:Karen Fields    Danger Noodle     5212 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Danger_Noodle.txt\n"
+				+ "Opus  2:Nathaniel Browning    Terror Wire     3542 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Terror_Wire.txt\n"
+				+ "Opus  2:Sanjay McGriddle    Scary Snek     2168 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Scary_Snek.txt\n"
+				+ "\n\nIndex Terms 18234\nPostings:       3575189");
+		
+		ScrollPane sumScrollPane= new ScrollPane(someText);
+		sumScrollPane.setMinHeight(550);
+		sumScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
+		sumScrollPane.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+		
+		sumBox.getChildren().add(sumScrollPane);
+		summarizeDocTab.setContent(sumBox);
 		tabPane.getTabs().add(summarizeDocTab);
-
+		
+		
 	}
 
 	private void createSearchDocumentTab(TabPane tabPane) {
 		HBox hbox = new HBox();
-		hbox.setAlignment(Pos.BASELINE_LEFT);
+		VBox vbox = new VBox();
+		hbox.setAlignment(Pos.CENTER);
 
 		Tab searchDocTab = new Tab();
 		searchDocTab.setText("Search for Documents");
 		searchDocTab.setClosable(false);
 		
-		//createEmptySpace(hbox);
 		createQueryLabel(hbox);
 		TextField queryInput = createQueryInput(hbox);
+		hbox.setPadding(new Insets(20));
 		createClearButton(hbox, queryInput);
-		//createTextArea(hbox);
+		createTextArea(vbox,hbox);
 
-		searchDocTab.setContent(hbox);
+		searchDocTab.setContent(vbox);
 		tabPane.getTabs().add(searchDocTab);
 	}
 
@@ -266,15 +292,24 @@ public class HomeFile extends Application {
 		flow.getChildren().add(hLine);
 	}
 
-	@SuppressWarnings("unused")
-	private void createTextArea(HBox hbox) {
-		TextArea textArea = new TextArea();
-        textArea.setPrefRowCount(10);
-        textArea.setPrefColumnCount(100);
-        textArea.setWrapText(true);
-        textArea.setPrefWidth(150);
-        hbox.getChildren().add(textArea);
-	}
+	private void createTextArea(VBox vbox, HBox hbox) {
 
+		TextField topField = new TextField();
+		TextField bottomField = new TextField();
+		
+		topField.setMinHeight(200);
+		topField.setEditable(false);
+		
+		bottomField.setMinHeight(200);
+		bottomField.setEditable(false);	
+		
+		
+		vbox.setAlignment(Pos.TOP_CENTER);
+		vbox.getChildren().addAll(hbox,topField,bottomField);
+		vbox.setPadding(new Insets(20,20,20,20));
+		vbox.setSpacing(30);
+		//vbox.getChildren().addAll(hbox,textArea);
+	}
+	
 }
 
