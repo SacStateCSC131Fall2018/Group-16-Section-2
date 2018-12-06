@@ -5,19 +5,21 @@ import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.awt.MenuItem;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 /*/
  * Authors:
  * 		Ly Nguyen
  * Team: Group 16 Section 2
  */
-public class MenuBar extends JMenuBar implements ActionListener{
+public class MenuBar extends JFrame implements ActionListener{
 	/**
 	 * 
 	 */
@@ -26,11 +28,34 @@ public class MenuBar extends JMenuBar implements ActionListener{
 	JMenuItem item;
 	JMenuItem exportButton;
 	JMenuItem exitButton;
+	
+	JMenuBar menu = new JMenuBar();
+	JFrame f = new JFrame();
+	JMenu file = new JMenu("file");
+	JMenu edit= new JMenu("edit");
+	JMenu close = new JMenu("close");
+	String files[] = {"new","open","save"};
+	String edits[] = {"copy","paste"};
+			
+	
 
 	public MenuBar() {
 		super();			//Intiallize Bar
 		setupMenus();
-		System.out.print("Hello");
+		f.setVisible(true);
+		f.setSize(400,400);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setLocationRelativeTo(null);
+		
+		JMenuBar mb = new JMenuBar();
+		JMenu file = new JMenu("File");
+		mb.add(file);
+		JMenu edit = new JMenu("Edit");
+		mb.add(edit);
+		JMenuItem exit = new JMenuItem("Exit");
+		file.add(exit);
+		
+		f.setJMenuBar(mb);
 	}
 	
 	
