@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Tab;
@@ -35,7 +36,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextBuilder;
 import javafx.stage.Stage;
 
+import javax.swing.JFrame;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import gui_components.*;
@@ -58,10 +61,12 @@ public class HomeFile extends Application {
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Pirex");
 		Group root = new Group();
-		MenuBar mainBar = new MenuBar();												//Added But I'm not sure if it works -Ly
-		root.getChildren().add(mainBar);
-		Scene scene = new Scene(root, 700, 600, Color.WHITE);// ADD menu ITEMS here or another method call
 
+
+		
+		//MenuBar mainBar = new MenuBar();												//Added But I'm not sure if it works -Ly
+		//root.getChildren().addN(menuBar);
+		Scene scene = new Scene(root, 700, 600, Color.WHITE);// ADD menu ITEMS here or another method call
 		
 		
 		TabPane tabPane = new TabPane();
@@ -82,6 +87,23 @@ public class HomeFile extends Application {
 		borderPane.prefHeightProperty().bind(scene.heightProperty());
 		borderPane.prefWidthProperty().bind(scene.widthProperty());
 		borderPane.setCenter(tabPane);
+		// Menu Controls Ad - Hoc
+		
+		MenuBar menuBar = new MenuBar();
+		 
+        // --- Menu File
+        Menu menuFile = new Menu("File");
+ 
+        // --- Menu Edit
+        Menu menuEdit = new Menu("Edit");
+ 
+        // --- Menu View
+        Menu menuView = new Menu("View");
+        Menu menuHelp = new Menu("Help");
+        Menu menuOptions = new Menu("Options");
+ 
+        menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuHelp, menuOptions);
+        borderPane.setTop(menuBar);
 		root.getChildren().add(borderPane);
 	}
 

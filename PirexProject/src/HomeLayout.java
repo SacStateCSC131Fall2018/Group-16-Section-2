@@ -62,7 +62,7 @@ public class HomeLayout extends JFrame
         
         //Adding Menu Bar -LY
         MenuBar mainBar = new MenuBar();
-        setJMenuBar(mainBar);
+       // setJMenuBar(mainBar);
 	}
 	
 	public void windowClosing(WindowEvent e)
