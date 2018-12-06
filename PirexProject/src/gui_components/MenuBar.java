@@ -42,7 +42,6 @@ public class MenuBar extends JFrame implements ActionListener{
 	public MenuBar() {
 		super();			//Intiallize Bar
 		setupMenus();
-
 	}
 	
 	
