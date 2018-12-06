@@ -19,6 +19,8 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.effect.InnerShadowBuilder;
 import javafx.scene.layout.BorderPane;
@@ -109,12 +111,31 @@ public class HomeFile extends Application {
 	}
 
 	private void createSummarizeDocumentTab(TabPane tabPane) {
+		VBox sumBox = new VBox();
+		sumBox.setAlignment(Pos.CENTER);
 		Tab summarizeDocTab = new Tab();
 		summarizeDocTab.setText("Summarize Documents");
 		summarizeDocTab.setClosable(false);
+		
+		Text someText = new Text("Opus  0:Henry Ford    Slurp Rope     7312 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Slurp_Rope.txt\n"
+				+ "Opus  1:Karen Fields    Danger Noodle     5212 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Danger_Noodle.txt\n"
+				+ "Opus  2:Nathaniel Browning    Terror Wire     3542 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Terror_Wire.txt\n"
+				+ "Opus  2:Sanjay McGriddle    Scary Snek     2168 documents\n"
+				+ "          /Users/myPc/Programs/java/data/Scary_Snek.txt\n"
+				+ "\n\nIndex Terms 18234\nPostings:       3575189");
+		
+		ScrollPane sumScrollPane= new ScrollPane(someText);
+		sumScrollPane.setMinHeight(550);
+		sumScrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
+		sumScrollPane.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+		
+		sumBox.getChildren().add(sumScrollPane);
+		summarizeDocTab.setContent(sumBox);
 		tabPane.getTabs().add(summarizeDocTab);
 		
-		//test push
 		
 	}
 
@@ -285,6 +306,6 @@ public class HomeFile extends Application {
 		vbox.setSpacing(30);
 		//vbox.getChildren().addAll(hbox,textArea);
 	}
-
+	
 }
 
