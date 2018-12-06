@@ -71,12 +71,7 @@ public class MenuBar extends JFrame implements ActionListener{
 		optionsMenu = new JMenu("Options");
 		item = new JMenuItem("Documents");
 		optionsMenu.add(item);
-		
-		//add menus to menuBar by Minh Giang
-		menuBar.add(fileMenu);
-		menuBar.add(helpMenu);
-		menuBar.add(optionsMenu);
-		
+				
 		//Put Menu Bar on frame by Minh Giang
 		frame.setJMenuBar(menuBar);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
