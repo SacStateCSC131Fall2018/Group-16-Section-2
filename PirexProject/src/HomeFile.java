@@ -34,7 +34,7 @@ import javafx.stage.Stage;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import PirexProject.gui_components;
+import gui_components
 /**  NOTE : JAVA FX needs to be installed
  * 
  * Goto Below Link for steps
