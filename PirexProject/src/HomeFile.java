@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -23,6 +24,7 @@ import javafx.scene.effect.InnerShadowBuilder;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
@@ -118,19 +120,20 @@ public class HomeFile extends Application {
 
 	private void createSearchDocumentTab(TabPane tabPane) {
 		HBox hbox = new HBox();
-		hbox.setAlignment(Pos.BASELINE_LEFT);
+		VBox vbox = new VBox();
+		hbox.setAlignment(Pos.CENTER);
 
 		Tab searchDocTab = new Tab();
 		searchDocTab.setText("Search for Documents");
 		searchDocTab.setClosable(false);
 		
-		//createEmptySpace(hbox);
 		createQueryLabel(hbox);
 		TextField queryInput = createQueryInput(hbox);
+		hbox.setPadding(new Insets(20));
 		createClearButton(hbox, queryInput);
-		//createTextArea(hbox);
+		createTextArea(vbox,hbox);
 
-		searchDocTab.setContent(hbox);
+		searchDocTab.setContent(vbox);
 		tabPane.getTabs().add(searchDocTab);
 	}
 
@@ -264,14 +267,23 @@ public class HomeFile extends Application {
 		flow.getChildren().add(hLine);
 	}
 
-	@SuppressWarnings("unused")
-	private void createTextArea(HBox hbox) {
-		TextArea textArea = new TextArea();
-        textArea.setPrefRowCount(10);
-        textArea.setPrefColumnCount(100);
-        textArea.setWrapText(true);
-        textArea.setPrefWidth(150);
-        hbox.getChildren().add(textArea);
+	private void createTextArea(VBox vbox, HBox hbox) {
+
+		TextField topField = new TextField();
+		TextField bottomField = new TextField();
+		
+		topField.setMinHeight(200);
+		topField.setEditable(false);
+		
+		bottomField.setMinHeight(200);
+		bottomField.setEditable(false);	
+		
+		
+		vbox.setAlignment(Pos.TOP_CENTER);
+		vbox.getChildren().addAll(hbox,topField,bottomField);
+		vbox.setPadding(new Insets(20,20,20,20));
+		vbox.setSpacing(30);
+		//vbox.getChildren().addAll(hbox,textArea);
 	}
 
 }
