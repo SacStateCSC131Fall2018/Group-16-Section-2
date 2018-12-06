@@ -111,7 +111,9 @@ public class HomeFile extends Application {
 		summarizeDocTab.setText("Summarize Documents");
 		summarizeDocTab.setClosable(false);
 		tabPane.getTabs().add(summarizeDocTab);
-
+		
+		//test push
+		
 	}
 
 	private void createSearchDocumentTab(TabPane tabPane) {
