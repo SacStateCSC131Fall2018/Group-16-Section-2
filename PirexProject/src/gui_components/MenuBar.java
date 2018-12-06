@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.awt.Dimension;
 import java.awt.MenuItem;
 
 import javax.swing.JFileChooser;
@@ -71,11 +72,12 @@ public class MenuBar extends JFrame implements ActionListener{
 		item = new JMenuItem("Documents");
 		optionsMenu.add(item);
 		
-		//add menus to menuBar by Minh Giang
-		menuBar.add(fileMenu);
-		menuBar.add(helpMenu);
-		menuBar.add(optionsMenu);
+		//add menus to menuBar by Minh Giang 							-Ly: this is redundant, commented out.
+//		menuBar.add(fileMenu);
+//		menuBar.add(helpMenu);
+//		menuBar.add(optionsMenu);
 		
+
 		//Put Menu Bar on frame by Minh Giang
 		frame.setJMenuBar(menuBar);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
