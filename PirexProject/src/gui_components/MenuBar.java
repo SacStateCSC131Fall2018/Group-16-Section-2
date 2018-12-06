@@ -28,16 +28,8 @@ public class MenuBar extends JFrame implements ActionListener{
 	JMenuItem item;
 	JMenuItem exportButton;
 	JMenuItem exitButton;
-	
-	JMenuBar menu = new JMenuBar();
-	JFrame f = new JFrame();
-	JMenu file = new JMenu("file");
-	JMenu edit= new JMenu("edit");
-	JMenu close = new JMenu("close");
-	String files[] = {"new","open","save"};
-	String edits[] = {"copy","paste"};
-			
-	
+	JFrame frame;
+	JMenuBar menuBar;
 
 	public MenuBar() {
 		super();			//Intiallize Bar
@@ -46,6 +38,10 @@ public class MenuBar extends JFrame implements ActionListener{
 	
 	
 	public void setupMenus() {
+		//Main Menu Bar Set Up By Minh Giang
+		frame = new JFrame ("Menu");
+		menuBar = new JMenuBar();
+				
 		//FileMenu set up by Ly
 		fileMenu = new JMenu("File");
 		item = new JMenuItem("Save Query");
@@ -75,23 +71,19 @@ public class MenuBar extends JFrame implements ActionListener{
 		item = new JMenuItem("Documents");
 		optionsMenu.add(item);
 		
-		//BarMenu Set Up By Minh
-		f.setVisible(true);
-		f.setSize(400,400);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setLocationRelativeTo(null);
+		//add menus to menuBar by Minh Giang
+		menuBar.add(fileMenu);
+		menuBar.add(helpMenu);
+		menuBar.add(optionsMenu);
 		
-		JMenuBar mb = new JMenuBar();
-		JMenu file = new JMenu("File");
-		mb.add(file);
-		JMenu edit = new JMenu("Edit");
-		mb.add(edit);
-		JMenuItem exit = new JMenuItem("Exit");
-		file.add(exit);
+		//Put Menu Bar on frame by Minh Giang
+		frame.setJMenuBar(menuBar);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setPreferredSize(new Dimension(400,300));
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 		
-		f.setJMenuBar(mb);
-		
-				
 	}
 
 	/*
