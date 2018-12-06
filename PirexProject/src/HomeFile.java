@@ -54,11 +54,12 @@ public class HomeFile extends Application {
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Pirex");
 		Group root = new Group();
-		Scene scene = new Scene(root, 700, 600, Color.WHITE);
-		
-		MenuBar menu = new MenuBar();
-		// ADD menu ITEMS here or another method call
+		MenuBar mainBar = new MenuBar();												//Added But I'm not sure if it works -Ly
+		root.getChildren().add(mainBar);
+		Scene scene = new Scene(root, 700, 600, Color.WHITE);// ADD menu ITEMS here or another method call
 
+		
+		
 		TabPane tabPane = new TabPane();
 		BorderPane borderPane = new BorderPane();
 
@@ -80,6 +81,9 @@ public class HomeFile extends Application {
 		root.getChildren().add(borderPane);
 	}
 
+	private void createMenuBar(FlowPane flow) {
+		
+	}
 	private void createLoadDocumentTab(TabPane tabPane) {
 		//HBox hbox = new HBox();
 		//hbox.setAlignment(Pos.BASELINE_LEFT);
