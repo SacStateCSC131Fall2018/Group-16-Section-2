@@ -15,6 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -87,28 +88,44 @@ public class HomeFile extends Application {
 		borderPane.prefHeightProperty().bind(scene.heightProperty());
 		borderPane.prefWidthProperty().bind(scene.widthProperty());
 		borderPane.setCenter(tabPane);
-		// Menu Controls Ad - Hoc
 		
-		MenuBar menuBar = new MenuBar();
-		 
-        // --- Menu File
-        Menu menuFile = new Menu("File");
- 
-        // --- Menu Edit
-        Menu menuEdit = new Menu("Edit");
- 
-        // --- Menu View
-        Menu menuView = new Menu("View");
-        Menu menuHelp = new Menu("Help");
-        Menu menuOptions = new Menu("Options");
- 
-        menuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuHelp, menuOptions);
+		// Menu Controls 
+		MenuBar menuBar = createMenuBar();
+
         borderPane.setTop(menuBar);
 		root.getChildren().add(borderPane);
 	}
 
-	private void createMenuBar(FlowPane flow) {
+	private MenuBar createMenuBar() {
+		MenuBar localMenuBar = new MenuBar();
 		
+		// --- Menu File
+        Menu menuFile = new Menu("File");
+        MenuItem f_saveBtn = new MenuItem("Save Query");
+        MenuItem f_loadBtn = new MenuItem("load Query");
+        MenuItem f_importBtn = new MenuItem("Import");
+        MenuItem f_exportBtn = new MenuItem("Export");
+        MenuItem f_exitBtn = new MenuItem("Exit");
+        menuFile.getItems().addAll(f_saveBtn,f_loadBtn,f_importBtn,f_exportBtn,f_exitBtn);
+        
+        // --- Menu Edit
+        Menu menuEdit = new Menu("Edit");
+        MenuItem e_helpBtn = new MenuItem("Help");
+        MenuItem e_aboutBtn = new MenuItem("About Pirex");
+        menuEdit.getItems().addAll(e_helpBtn,e_aboutBtn);
+        
+        // --- Menu View
+        Menu menuView = new Menu("View");
+        
+        // --- Menu Options
+        Menu menuOptions = new Menu("Options");
+        MenuItem o_documentsBtn = new MenuItem("Documents");
+        menuOptions.getItems().add(o_documentsBtn);
+        
+        // All Components are stored in here.
+        localMenuBar.getMenus().addAll(menuFile, menuEdit, menuView, menuOptions);
+		
+        return localMenuBar;
 	}
 	private void createLoadDocumentTab(TabPane tabPane) {
 		//HBox hbox = new HBox();
